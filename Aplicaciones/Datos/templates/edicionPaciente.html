@@ -1,0 +1,39 @@
+{% extends "./base.html" %}
+{% block title %} Clinica Primavera {% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edicion de Pacientes </h2>
+        <div class="card ">
+            <div class="card-body ">
+                <form action="/editarPaciente/ " method="POST" >{% csrf_token %}
+                    <div class="class formgroup ">
+                        <input type="text" id="textNombre" name="textNombre" value="{{paciente.Nombre}}" class="form-control" placeholder="Nombre" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textDPI" name="textDPI" value="{{paciente.DPI}}"class="form-control" placeholder="DPI" minlength="13" maxlength="13" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textDireccion" name="textDireccion" value="{{paciente.Direccion}}" class="form-control" placeholder="Direccion" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textFecha_Nacimiento" name="textFecha_Nacimiento" value="{{paciente.Fecha_Nacimiento}}" class="form-control" placeholder="Fecha de Nacimiento" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textRazon_Visita" name="textRazon_Visita" value="{{paciente.Razon_Visita}}" class="form-control" placeholder="Razon de Visita" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textNumero" name="textNumero"  value="{{paciente.Numero}}" class="form-control" placeholder="Numero" minlength="8" maxlength="8" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textOtros" name="textOtros" value="{{paciente.Otros}}" class="form-control" placeholder="Otros" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                      <button type="submit" class="btn btn-success btn-block btnGuardar">Guardar</button>
+                    </div>
+                </form>
+            </div>
+
+    </div>
+</div>
+{% endblock %}

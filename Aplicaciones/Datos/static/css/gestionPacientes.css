@@ -1,0 +1,131 @@
+*{
+    margin:0; padding: 0;
+    box-sizing:border-box;
+}
+body{
+    background-color: #FFFAF0;
+}
+.navbar{width: 100%;
+background-image: linear-gradient(to right,#de6262,#ffb88c);
+}
+.navbar-brand{color: azure!important;}
+.nav-link{color: azure!important;}
+.nav-link:hover{color: black !important;}
+
+th, 
+td{
+    text-align: center;
+    vertical-align: middle;
+}
+h1 {
+    text-align: center;
+    font-weight: bold; 
+    color: #ff6600; 
+    padding: 10px; 
+    font-family: "Lobster";
+}
+h2{
+    background-image: linear-gradient(to right,#de6262,#ffb88c);
+    color: white;
+    text-align: center;
+}
+p{
+    text-align: center; 
+}
+h4 {
+    text-align: center;
+    font-weight: bold; 
+    color: #ff6600; 
+    padding: 10px; 
+    font-family: "Lobster";
+    font-size: 28px;
+}
+.fila-de-imagenes {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+.imagen {
+    width: 200px; 
+    height: 200px;
+    margin: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+}  
+.btnEliminacion {
+    background: #FF8C00;
+    color: #FFFFFF; 
+    font-weight: bold;
+}
+.btnEditar{
+    background: #DDA0DD;
+    color: #FFFFFF; 
+    font-weight: bold; 
+}
+.btnGuardar{
+    background: yellowgreen;
+    color: #FFFFFF; 
+    font-weight: bold; 
+}
+.container-form{
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 90px;
+}
+.container-form h4{
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+.container-form a{
+    font-size: 18px;
+    display: inline-block;
+    text-decoration: none;
+    width: 100%;
+    margin-bottom: 15px;
+    color: black;
+    font-weight: 700;
+}
+.container-form a i{
+    color:#ff6600;
+    margin-right: 20px;
+}
+.container-form form .campo, textarea{
+    width: 100%;
+    padding: 15px 10px;
+    font-size: 15px;
+    border: 1px solid #ff6600;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    outline: 0px;
+}
+.container-form form textarea{
+    max-width: 530px;
+    min-width: 530px;
+    min-height: 140px;
+    max-height: 150px;
+}
+.container-form .btnEnviar{
+   padding: 15px;
+   font-size: 16px;
+   border: none;
+   outline: 0px;
+   background: #ff6600;
+   color: white;
+   font-weight: bold; 
+   border-radius: 3px;
+   cursor: pointer;
+   transition: all 300ms ease;
+}
+.container-form .btnEnviar{
+    background: #800000;
+}
+
+
+
+
+
+  
+  

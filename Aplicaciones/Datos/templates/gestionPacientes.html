@@ -1,0 +1,164 @@
+{% extends "./base.html" %}
+{% block title %} Clinica Primavera {% endblock %}
+{% block body %}
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 ">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-dismissible alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong class="text-dark">{{ message }}</strong>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <h2>Gestión de Pacientes </h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/registrarPaciente/ " method="POST" >{% csrf_token %}
+                    <div class="class formgroup ">
+                        <input type="text" id="textNombre" name="textNombre" class="form-control" placeholder="Nombre" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textDPI" name="textDPI" class="form-control" placeholder="DPI" minlength="13" maxlength="13" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textDireccion" name="textDireccion" class="form-control" placeholder="Direccion" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textFecha_Nacimiento" name="textFecha_Nacimiento" class="form-control" placeholder="Fecha de Nacimiento" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textRazon_Visita" name="textRazon_Visita" class="form-control" placeholder="Razon de Visita" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textNumero" name="textNumero" class="form-control" placeholder="Numero" minlength="8" maxlength="8" required>
+                    </div>
+                    <div class="class formgroup">
+                        <input type="text" id="textOtros" name="textOtros" class="form-control" placeholder="Receta Paciente" maxlength="50" required>
+                    </div>
+                    <div class="class formgroup">
+                      <button type="submit" class="btn btn-success btn-block btnGuardar">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h2>Listado de Pacientes</h2>
+        <div class="table-responsive py-2">
+            
+    
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>DPI</th>
+                        <th>Dirección</th>
+                        <th>Fecha de Nacimiento</th>
+                        <th>Razón visita</th>
+                        <th>Número</th>
+                        <th>Receta Paciente</th>
+                        <th colspan="2">Opciones </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in pacientes %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.Nombre}}</td>
+                        <td>{{c.DPI}}</td>
+                        <td>{{c.Direccion}}</td>
+                        <td>{{c.Fecha_Nacimiento}}</td>
+                        <td>{{c.Razon_Visita}}</td>
+                        <td>{{c.Numero}}</td>
+                        <td>{{c.Otros}}</td>
+                        <td><a href="edicionPaciente/{{c.DPI}}" class="btn btn-info btnEditar" >Editar</a></td>
+                        <td><a href="eliminarPaciente/{{c.DPI}}" class ="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+</div>
+<p>
+
+</p>
+<p>
+    
+</p>
+
+<div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 ">
+        <h2>Gestión de Médicos</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/registrarMedico/" method="POST">{% csrf_token %}
+                    <div class="class form-group">
+                        <input type="text" id="textNombre" name="textNombre" class="form-control" placeholder="Nombre" maxlength="50" required>
+                    </div>
+                    <div class="class form-group ">
+                        <input type="text" id="textNumero_Colegiado" name="textNumero_Colegiado" class="form-control" placeholder="Numero de Colegiado" minlength="13" maxlength="13" required>
+                    </div>
+                    <div class="class form-group ">
+                        <input type="text" id="textEspecialidad" name="textEspecialidad" class="form-control" placeholder="Especialidad" maxlength="50" required>
+                    </div>
+                    <div class="class form-group ">
+                        <input type="text" id="textDiagnostico" name="textDiagnostico" class="form-control" placeholder="Diagnostico" maxlength="50" required>
+                    </div>
+                    <div class="class form-group ">
+                        <input type="text" id="textOtros" name="textOtros" class="form-control" placeholder="Otros" maxlength="50" required>
+                    </div> 
+                    <div class="class form-group ">
+                        <button type="submit" class="btn btn-success btn-block btnGuardar">Guardar</button>
+                    </div>             
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 ">
+        <h2>Listado de Médicos</h2>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Numero de Colegiado</th>
+                        <th>Especialidad</th>
+                        <th>Diagnostico</th>                      
+                        <th>Otros</th>
+                        <th colspan="2">Opciones </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in medicos %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{c.Nombre}}</td>
+                        <td>{{c.Numero_Colegiado}}</td>
+                        <td>{{c.Especialidad}}</td>
+                        <td>{{c.Diagnostico}}</td>
+                        <td>{{c.Otros}}</td>
+                        <td><a href="edicionMedico/{{c.Numero_Colegiado}}" class="btn btn-info btnEditar" >Editar</a></td>
+                        <td><a href="eliminarMedico/{{c.Numero_Colegiado}}" class ="btn btn-danger btnEliminacion">Eliminar</a></td>
+                    </tr>
+                    </tr>
+                    {% endfor %}
+                                   
+                </tbody>
+            
+            </table>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

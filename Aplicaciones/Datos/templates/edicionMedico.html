@@ -1,0 +1,34 @@
+{% extends "./base.html" %}
+{% block title %} Clinica Primavera {% endblock %}
+{% block body %}
+<div class="=row">
+    <div class="col-md-4 offset-md-4">
+        <h2>Edicion de Médicos</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/editarMedico/" method="POST">{% csrf_token %}
+                    <div class="class form-group">
+                        <input type="text" id="textNombre" name="textNombre" value="{{medico.Nombre}}" class="form-control" placeholder="Nombre" maxlength="50" required>
+                    </div>
+                    <div class="class form-group ">
+                        <input type="text" id="textNumero_Colegiado" name="textNumero_Colegiado" value="{{medico.Numero_Colegiado}}"  class="form-control" placeholder="Numero de Colegiado" minlength="13" maxlengt="13" required>
+                    </div>
+                    <div class="class form-group ">
+                        <input type="text" id="textEspecialidad" name="textEspecialidad" value="{{medico.Especialidad}}" class="form-control" placeholder="Especialidad" maxlength="50" required>
+                    </div>
+                    <div class="class form-group ">
+                        <input type="text" id="textDiagnostico" name="textDiagnostico" value="{{medico.Diagnostico}}" class="form-control" placeholder="Diagnostico" maxlength="50" required>
+                    </div>
+                    <div class="class form-group ">
+                        <input type="text" id="textOtros" name="textOtros" value="{{medico.Otros}}" class="form-control" placeholder="Otros" maxlength="50" required>
+                    </div> 
+                    <div class="class form-group ">
+                        <button type="submit" class="btn btn-success btn-block btnGuardar">Guardar</button>
+                    </div>             
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
